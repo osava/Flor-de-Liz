@@ -1,0 +1,17 @@
+<modification>
+	<name><![CDATA[<font color="#0000"><b>Add Product Special Countdown</font>]]></name>
+    <version><![CDATA[<b>1.0</b>]]></version>
+    <author><![CDATA[<font color="#CC0000"><b>Bossthemes</font>]]></author>
+    <link><![CDATA[www.bossthemes.com]]></link>
+	<code>special</code>
+	<file path="catalog/controller/product/product.php">
+		<operation>
+			<search><![CDATA[
+			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
+			]]></search>
+			<add position="after"><![CDATA[
+			$data['specialProduct'] = $this->load->controller('module/boss_special/specialProduct');
+			]]></add>
+		</operation>
+	</file>
+</modification>
