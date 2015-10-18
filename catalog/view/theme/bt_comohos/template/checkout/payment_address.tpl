@@ -28,23 +28,41 @@
       <label class="control-label" for="input-payment-firstname"><?php echo $entry_firstname; ?></label>
         <input type="text" name="firstname" value="" placeholder="<?php echo $entry_firstname; ?>" id="input-payment-firstname" class="form-control" />
     </div>
-    <div class="required">
+    <!-- <div class="required">
       <label class="control-label" for="input-payment-lastname"><?php echo $entry_lastname; ?></label>
         <input type="text" name="lastname" value="" placeholder="<?php echo $entry_lastname; ?>" id="input-payment-lastname" class="form-control" />
     </div>
     <div class="">
       <label class="control-label" for="input-payment-company"><?php echo $entry_company; ?></label>
         <input type="text" name="company" value="" placeholder="<?php echo $entry_company; ?>" id="input-payment-company" class="form-control" />
-    </div>
+    </div> -->
     <div class="required">
       <label class="control-label" for="input-payment-address-1"><?php echo $entry_address_1; ?></label>
         <input type="text" name="address_1" value="" placeholder="<?php echo $entry_address_1; ?>" id="input-payment-address-1" class="form-control" />
     </div>
+    <?php if ($show_address_2) { ?>
     <div class="">
       <label class="control-label" for="input-payment-address-2"><?php echo $entry_address_2; ?></label>
         <input type="text" name="address_2" value="" placeholder="<?php echo $entry_address_2; ?>" id="input-payment-address-2" class="form-control" />
     </div>
+    <?php } ?>
     <div class="required">
+      <label class="control-label" for="input-payment-city"><?php echo $entry_phone; ?></label>
+        <input type="text" name="city" value="" placeholder="<?php echo $entry_city; ?>" id="input-payment-city" class="form-control" />
+    </div>
+    <div class="required">
+      <label class="control-label" for="input-payment-city"><?php echo $entry_district; ?></label>
+        <input type="text" name="city" value="" placeholder="<?php echo $entry_district; ?>" id="input-payment-city" class="form-control" />
+    </div>
+    <div class="required">
+      <label class="control-label" for="input-payment-city"><?php echo $entry_comments; ?></label>
+        <input type="text" name="city" value="" placeholder="<?php echo $entry_comments; ?>" id="input-payment-city" class="form-control" />
+    </div>
+    <div class="required">
+      <label class="control-label" for="input-payment-city"><?php echo $entry_dedication; ?></label>
+        <textarea name="city" placeholder="<?php echo $entry_dedication; ?>" id="input-payment-city" class="form-control"></textarea>
+    </div>
+    <!-- <div class="required">
       <label class="control-label" for="input-payment-city"><?php echo $entry_city; ?></label>
         <input type="text" name="city" value="" placeholder="<?php echo $entry_city; ?>" id="input-payment-city" class="form-control" />
     </div>
@@ -69,7 +87,7 @@
       <label class="control-label" for="input-payment-zone"><?php echo $entry_zone; ?></label>
         <select name="zone_id" id="input-payment-zone" class="form-control">
         </select>
-    </div>
+    </div> -->
     <?php foreach ($custom_fields as $custom_field) { ?>
     <?php if ($custom_field['location'] == 'address') { ?>
     <?php if ($custom_field['type'] == 'select') { ?>

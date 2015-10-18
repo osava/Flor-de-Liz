@@ -1,28 +1,28 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost/flordeliz/');
+define('HTTP_SERVER', 'http://localhost/Flor-de-Liz/');
 
 // HTTPS
-define('HTTPS_SERVER', 'https://localhost/flordeliz/');
+define('HTTPS_SERVER', 'https://localhost/Flor-de-Liz/');
 
 // DIR
-define('DIR_APPLICATION', 'C:\wamp\www\flordeliz/catalog/');
-define('DIR_SYSTEM', 'C:\wamp\www\flordeliz/system/');
-define('DIR_LANGUAGE', 'C:\wamp\www\flordeliz/catalog/language/');
-define('DIR_TEMPLATE', 'C:\wamp\www\flordeliz/catalog/view/theme/');
-define('DIR_CONFIG', 'C:\wamp\www\flordeliz/system/config/');
-define('DIR_IMAGE', 'C:\wamp\www\flordeliz/image/');
-define('DIR_CACHE', 'C:\wamp\www\flordeliz/system/cache/');
-define('DIR_DOWNLOAD', 'C:\wamp\www\flordeliz/system/download/');
-define('DIR_UPLOAD', 'C:\wamp\www\flordeliz/system/upload/');
-define('DIR_MODIFICATION', 'C:\wamp\www\flordeliz/system/modification/');
-define('DIR_LOGS', 'C:\wamp\www\flordeliz/system/logs/');
+define('DIR_APPLICATION', '/Applications/AMPPS/www/Flor-de-Liz/catalog/');
+define('DIR_SYSTEM', '/Applications/AMPPS/www/Flor-de-Liz/system/');
+define('DIR_LANGUAGE', '/Applications/AMPPS/www/Flor-de-Liz/catalog/language/');
+define('DIR_TEMPLATE', '/Applications/AMPPS/www/Flor-de-Liz/catalog/view/theme/');
+define('DIR_CONFIG', '/Applications/AMPPS/www/Flor-de-Liz/system/config/');
+define('DIR_IMAGE', '/Applications/AMPPS/www/Flor-de-Liz/image/');
+define('DIR_CACHE', '/Applications/AMPPS/www/Flor-de-Liz/system/cache/');
+define('DIR_DOWNLOAD', '/Applications/AMPPS/www/Flor-de-Liz/system/download/');
+define('DIR_UPLOAD', '/Applications/AMPPS/www/Flor-de-Liz/system/upload/');
+define('DIR_MODIFICATION', '/Applications/AMPPS/www/Flor-de-Liz/system/modification/');
+define('DIR_LOGS', '/Applications/AMPPS/www/Flor-de-Liz/system/logs/');
 
 // DB
 define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'mysql');
 define('DB_DATABASE', 'opencart_comohos_shoppingmall');
 define('DB_PREFIX', 'oc_');
 ?>
