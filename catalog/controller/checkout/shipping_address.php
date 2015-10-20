@@ -12,6 +12,10 @@ class ControllerCheckoutShippingAddress extends Controller {
 		$data['entry_firstname'] = $this->language->get('entry_firstname');
 		$data['entry_lastname'] = $this->language->get('entry_lastname');
 		$data['entry_company'] = $this->language->get('entry_company');
+		$data['entry_phone'] = $this->language->get('entry_phone');
+		$data['entry_district'] = $this->language->get('entry_district');
+		$data['entry_comments'] = $this->language->get('entry_comments');
+		$data['entry_dedication'] = $this->language->get('entry_dedication');
 		$data['entry_address_1'] = $this->language->get('entry_address_1');
 		$data['entry_address_2'] = $this->language->get('entry_address_2');
 		$data['entry_postcode'] = $this->language->get('entry_postcode');
@@ -21,6 +25,8 @@ class ControllerCheckoutShippingAddress extends Controller {
 
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_upload'] = $this->language->get('button_upload');
+
+		$data['show_options_address'] = false;
 
 		if (isset($this->session->data['shipping_address']['address_id'])) {
 			$data['address_id'] = $this->session->data['shipping_address']['address_id'];

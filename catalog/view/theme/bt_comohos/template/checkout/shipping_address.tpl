@@ -1,5 +1,5 @@
 <form class="form-horizontal">
-  <?php if ($addresses) { ?>
+  <?php if ($addresses && $show_options_address) { ?>
   <div class="radio">
     <label>
       <input type="radio" name="shipping_address" value="existing" checked="checked" />
@@ -23,27 +23,44 @@
   </div>
   <?php } ?>
   <br />
-  <div id="shipping-new" style="display: <?php echo ($addresses ? 'none' : 'block'); ?>;">
+  <div id="shipping-new" style="display: <?php echo (($addresses && $show_options_address) ? 'none' : 'block'); ?>;">
     <div class="required">
       <label class="control-label" for="input-shipping-firstname"><?php echo $entry_firstname; ?></label>
         <input type="text" name="firstname" value="" placeholder="<?php echo $entry_firstname; ?>" id="input-shipping-firstname" class="form-control" />
     </div>
-    <div class="required">
+    <!-- <div class="required">
       <label class="control-label" for="input-shipping-lastname"><?php echo $entry_lastname; ?></label>
         <input type="text" name="lastname" value="" placeholder="<?php echo $entry_lastname; ?>" id="input-shipping-lastname" class="form-control" />
     <div class="">
       <label class="control-label" for="input-shipping-company"><?php echo $entry_company; ?></label>
         <input type="text" name="company" value="" placeholder="<?php echo $entry_company; ?>" id="input-shipping-company" class="form-control" />
-    </div>
+    </div> -->
     <div class="required">
       <label class="control-label" for="input-shipping-address-1"><?php echo $entry_address_1; ?></label>
         <input type="text" name="address_1" value="" placeholder="<?php echo $entry_address_1; ?>" id="input-shipping-address-1" class="form-control" />
     </div>
-    <div class="">
+    <!-- <div class="">
       <label class="control-label" for="input-shipping-address-2"><?php echo $entry_address_2; ?></label>
         <input type="text" name="address_2" value="" placeholder="<?php echo $entry_address_2; ?>" id="input-shipping-address-2" class="form-control" />
+    </div> -->
+    <div class="required">
+      <label class="control-label" for="input-payment-phone"><?php echo $entry_phone; ?></label>
+        <input type="text" name="lastname" value="" placeholder="<?php echo $entry_phone; ?>" id="input-payment-phone" class="form-control" />
     </div>
     <div class="required">
+      <label class="control-label" for="input-payment-district"><?php echo $entry_district; ?></label>
+        <input type="text" name="company" value="" placeholder="<?php echo $entry_district; ?>" id="input-payment-district" class="form-control" />
+    </div>
+    <div class="required">
+      <label class="control-label" for="input-payment-comments"><?php echo $entry_comments; ?></label>
+        <input type="text" name="postcode" value="" placeholder="<?php echo $entry_comments; ?>" id="input-payment-comments" class="form-control" />
+    </div>
+    <div class="required">
+      <label class="control-label" for="input-payment-dedication"><?php echo $entry_dedication; ?></label>
+        <textarea name="city" placeholder="<?php echo $entry_dedication; ?>" id="input-payment-dedication" class="form-control"></textarea>
+    </div>
+
+    <!-- <div class="required">
       <label class="control-label" for="input-shipping-city"><?php echo $entry_city; ?></label>
         <input type="text" name="city" value="" placeholder="<?php echo $entry_city; ?>" id="input-shipping-city" class="form-control" />
     </div>
@@ -68,7 +85,10 @@
       <label class="control-label" for="input-shipping-zone"><?php echo $entry_zone; ?></label>
         <select name="zone_id" id="input-shipping-zone" class="form-control">
         </select>
-    </div>
+    </div> -->
+    <input type="hidden" name="address_2" value="address_2" />
+    <input type="hidden" name="country_id" value="05" />
+    <input type="hidden" name="zone_id" value="zone_id" />
     <?php foreach ($custom_fields as $custom_field) { ?>
     <?php if ($custom_field['location'] == 'address') { ?>
     <?php if ($custom_field['type'] == 'select') { ?>
@@ -170,6 +190,11 @@
   </div>
 </form>
 <script type="text/javascript"><!--
+<?php if (!$show_options_address) { ?>
+$( document ).ready(function() {  
+  $('#payment-new').show();
+});
+<?php } ?>
 $('input[name=\'shipping_address\']').on('change', function() {
 	if (this.value == 'new') {
 		$('#shipping-existing').hide();

@@ -226,8 +226,7 @@ $(document).delegate('#button-register', 'click', function() {
         },          
         success: function(json) {
             $('.alert, .text-danger').remove();
-            $('.form-group').removeClass('has-error');
-			            
+            $('.form-group').removeClass('has-error');		            
             if (json['redirect']) {
                 location = json['redirect'];                
             } else if (json['error']) {
@@ -352,7 +351,7 @@ $(document).delegate('#button-register', 'click', function() {
 });
 
 // Payment Address  
-$(document).delegate('#button-payment-address', 'click', function() {
+$(document).delegate('#button-payment-address', 'click', function() {  
     $.ajax({
         url: 'index.php?route=checkout/payment_address/save',
         type: 'post',
@@ -366,17 +365,19 @@ $(document).delegate('#button-payment-address', 'click', function() {
         },          
         success: function(json) {
             $('.alert, .text-danger').remove();
-            
+
+                  
             if (json['redirect']) {
                 location = json['redirect'];
             } else if (json['error']) {
                 if (json['error']['warning']) {
-                    $('#collapse-payment-address .panel-body').prepend('<div class="alert alert-warning">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+                    $('#collapse-payment-address .panel-body').prepend('<div class="alert alert-warning">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');                   
                 }
                 				
 				for (i in json['error']) {
-					var element = $('#input-payment-' + i.replace('_', '-'));
-					
+					var element = $('#input-payment-' + i.replace('_', '-'));					
+
 					if ($(element).parent().hasClass('input-group')) {
 						$(element).parent().after('<div class="text-danger">' + json['error'][i] + '</div>');
 					} else {
@@ -385,8 +386,12 @@ $(document).delegate('#button-payment-address', 'click', function() {
 				}
 								
 				// Highlight any found errors
-				$('.text-danger').parent().parent().addClass('has-error');				
-            } else {
+				$('.text-danger').parent().parent().addClass('has-error');
+        console.log(json);
+        
+    } else {
+      
+
                 <?php if ($shipping_required) { ?>
                 $.ajax({
                     url: 'index.php?route=checkout/shipping_address',
@@ -452,7 +457,7 @@ $(document).delegate('#button-shipping-address', 'click', function() {
     $.ajax({
         url: 'index.php?route=checkout/shipping_address/save',
         type: 'post',
-        data: $('#collapse-shipping-address input[type=\'text\'], #collapse-shipping-address input[type=\'date\'], #collapse-shipping-address input[type=\'datetime-local\'], #collapse-shipping-address input[type=\'time\'], #collapse-shipping-address input[type=\'password\'], #collapse-shipping-address input[type=\'checkbox\']:checked, #collapse-shipping-address input[type=\'radio\']:checked, #collapse-shipping-address textarea, #collapse-shipping-address select'),
+        data: $('#collapse-shipping-address input[type=\'text\'], #collapse-shipping-address input[type=\'date\'], #collapse-shipping-address input[type=\'datetime-local\'], #collapse-shipping-address input[type=\'time\'], #collapse-shipping-address input[type=\'password\'], #collapse-shipping-address input[type=\'checkbox\']:checked, #collapse-shipping-address input[type=\'hidden\'], #collapse-shipping-address input[type=\'radio\']:checked, #collapse-shipping-address textarea, #collapse-shipping-address select'),
         dataType: 'json',
         beforeSend: function() {
 			$('#button-shipping-address').button('loading');
