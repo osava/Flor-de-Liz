@@ -1,7 +1,7 @@
 <?php echo $header; ?>
 <div class="container">
   <div class="row bt-breadcrumb">
-  <ul class="breadcrumb">
+  <ul>
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
     <?php } ?>
